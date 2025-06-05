@@ -42,7 +42,7 @@ const images = [
 export default function Collections() {
   return (
     <section
-      className="py-16 bg-[url('/ceramica-textura.jpg')] bg-cover bg-center bg-no-repeat bg-fixed"
+      
       style={{ backgroundColor: "#f5f1e6", position: "relative", height: "700px" }}
     >
       <div className="max-w-6xl mx-auto px-4 text-center relative z-10">

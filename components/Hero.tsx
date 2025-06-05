@@ -17,7 +17,7 @@ export default function Hero() {
         className="bg-black bg-opacity-0 p-8 rounded-lg max-w-3xl text-center text-white"
       >
         <h1 className="text-6xl font-diskus font-bold">Artesanía León</h1>
-        <p className="mt-4 text-x6 font-light">
+        <p className="mt-4 text-xl font-light">
           Tradición alfarera desde 1906, Cerámica fabricada en España.
         </p>
       </motion.div>
