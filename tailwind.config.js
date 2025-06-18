@@ -8,6 +8,9 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
+        cormorant: ["var(--font-cormorant)"],
+              inter: ['Inter', 'sans-serif'],
+      playfair: ['"Playfair Display"', 'serif'],
         diskus: ['Diskus', 'sans-serif'],
       },
     },

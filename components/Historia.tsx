@@ -2,44 +2,39 @@
 
 import Image from "next/image";
 
-export default function Historia() {
+export default function NuestraHistoria() {
   return (
-    <section className="py-16 bg-[url('/ceramica-textura.jpg')] bg-cover bg-center bg-beige-light">
-
-      <div className="max-w-4xl mx-auto bg-white/70 dark:bg-black/50 p-8 rounded shadow-lg flex flex-col md:flex-row items-center gap-8">
-        {/* Imagen */}
-        <div className="flex-shrink-0 w-full md:w-1/3 rounded overflow-hidden shadow-md">
+    <section className="py-20 px-4">
+      <div className="max-w-6xl mx-auto grid md:grid-cols-12 gap-12 items-center">
+        {/* Imagen a la izquierda */}
+        <div className="relative col-span-12 md:col-span-5 h-72 md:h-[450px] rounded-lg overflow-hidden shadow-md">
           <Image
-            src="/historia-alfareria.jpg" // tu imagen aquí
-            alt="Historia Artesanía León"
-            width={400}
-            height={300}
-            className="object-cover w-full h-full"
+            src="/historia-alfareria.jpg"
+            alt="Nuestra Historia"
+            fill
+            className="object-cover transition-transform duration-700 ease-in-out hover:scale-105"
           />
         </div>
 
-        {/* Texto */}
-        <div className="flex-1 text-center md:text-left">
-          <h2 className="text-4xl font-diskus font-bold mb-4 text-yellow-800 dark:text-yellow-400">
-            Alfarería y Cerámica León S.L.
+        {/* Texto a la derecha */}
+        <div className="col-span-12 md:col-span-7">
+          <h2 className="text-5xl md:text-6xl font-cormorant font-semibold text-gray-900 mb-6 leading-tight">
+            Nuestra Historia
           </h2>
-          <p className="text-lg font-light leading-relaxed">
-            ARTESANÍA LEÓN es un Taller de Alfarería y Cerámica Artesanal de gran tradición familiar que se remonta a cuatro generaciones de alfareros.
+          <p className="text-lg text-gray-700 mb-4 leading-relaxed">
+            Artesanía León es un taller familiar de alfarería y cerámica con raíces que se extienden a lo largo de cuatro generaciones.
           </p>
-          <p className="mt-4 text-lg font-light leading-relaxed">
-            Fue fundado en 1.970 bajo la denominación de «Artesanía León» por Diego León del Río, que trabajaba como socio en la empresa familiar heredada de sus padres, que a la vez la habían heredado de sus progenitores.
+          <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+            Fundado en 1970 por Diego León del Río, nace como legado de un linaje de alfareros que sigue inspirando nuestras piezas hasta hoy.
           </p>
-          {/* Botón "Leer más" */}
-          <div className="mt-6">
-            <a
-              href="/historia"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block px-6 py-2 rounded bg-yellow-800 text-white hover:bg-yellow-700 dark:bg-yellow-600 dark:hover:bg-yellow-500 transition-colors"
-            >
-              Leer más
-            </a>
-          </div>
+          <a
+            href="/historia"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block px-6 py-2 rounded-full bg-gray-900 text-white hover:bg-gray-700 transition-all duration-300 tracking-wide uppercase text-sm shadow-md"
+          >
+            Leer más
+          </a>
         </div>
       </div>
     </section>

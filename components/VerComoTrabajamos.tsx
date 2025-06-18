@@ -11,8 +11,7 @@ export default function VerComoTrabajamos() {
 
   return (
     <section
-      className="py-16 bg-[url('/ceramica-textura.jpg')] bg-cover bg-center bg-no-repeat bg-fixed"
-      style={{ backgroundColor: "#f5f1e6" }}
+
     >
       <div
         className="max-w-7xl mx-auto p-8 rounded-lg shadow-lg bg-white/80 dark:bg-black/60"

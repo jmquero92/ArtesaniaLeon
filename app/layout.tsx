@@ -1,6 +1,13 @@
+import { Cormorant_Garamond } from "next/font/google";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["400", "600", "700"], // Asegúrate de incluir los pesos que vas a usar
+  variable: "--font-cormorant",
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,11 +31,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gradient-to-b from-[#e3d5c2] via-[#f3ede3] to-[#fffdf8]`}
-      >
-        {children}
-      </body>
+<body className="bg-gradient-to-b from-[#f3e9dc] via-[#fdf7f2] to-[#fffefa] text-gray-900">
+  {children}
+</body>
     </html>
   ); 
 }
