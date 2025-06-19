@@ -1,36 +1,87 @@
+/* 
 "use client";
 
-import { useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
+
+// Este componente está temporalmente desactivado
 
 export default function VerComoTrabajamos() {
-  useEffect(() => {
-    AOS.init({ duration: 1000 });
-  }, []);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <section
-
-    >
-      <div
-        className="max-w-7xl mx-auto p-8 rounded-lg shadow-lg bg-white/80 dark:bg-black/60"
-        data-aos="fade-up"
-      >
-        <h2 className="text-4xl font-bold mb-6 text-center text-yellow-800 dark:text-yellow-400 font-diskus">
+    <section className="bg-[#fcf9f4] py-24 px-6">
+      <div className="max-w-5xl mx-auto text-center">
+        <motion.h2
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="text-4xl md:text-5xl font-cormorant text-[#5C432D] mb-4"
+        >
           Ver cómo trabajamos
-        </h2>
+        </motion.h2>
 
-        <div className="relative" style={{ paddingTop: "56.25%" /* 16:9 aspect ratio */ }}>
-          <iframe
-            className="absolute top-0 left-0 w-full h-full border-0"
-            src="https://www.youtube.com/embed/uqWDS8ZBYSU?autoplay=1&mute=1&controls=0&rel=0&modestbranding=1"
-            title="Ver cómo trabajamos"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.2, duration: 0.8 }}
+          viewport={{ once: true }}
+          className="text-lg text-[#7C5F47] font-light mb-10"
+        >
+          Un vistazo íntimo al alma del taller.
+        </motion.p>
+
+        <div
+          className="relative max-w-4xl mx-auto rounded-lg overflow-hidden shadow-md cursor-pointer group"
+          onClick={() => setIsOpen(true)}
+        >
+          <Image
+            src="/img/video-cover.jpg"
+            alt="Vista previa del vídeo"
+            width={1280}
+            height={720}
+            className="object-cover w-full h-auto transition-transform duration-300 group-hover:scale-105"
           />
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="bg-white/80 hover:bg-white text-black p-4 rounded-full transition duration-300 shadow-lg">
+              ▶
+            </div>
+          </div>
         </div>
+
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 px-4"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            >
+              <div className="relative w-full max-w-4xl aspect-video">
+                <iframe
+                  className="w-full h-full"
+                  src="https://www.youtube.com/embed/uqWDS8ZBYSU?autoplay=1&mute=1&rel=0&modestbranding=1"
+                  title="Ver cómo trabajamos"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+                <button
+                  onClick={() => setIsOpen(false)}
+                  className="absolute top-2 right-2 text-white text-3xl hover:text-red-400 transition"
+                >
+                  ×
+                </button>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </section>
   );
+}
+*/
+export default function VerComoTrabajamos() {
+  return null;
 }
