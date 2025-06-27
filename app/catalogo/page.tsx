@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+
 
 const categorias = [
   { nombre: "ACEITUNEROS", imagen: "ACEITUNEROS/AC1.jpg" },
