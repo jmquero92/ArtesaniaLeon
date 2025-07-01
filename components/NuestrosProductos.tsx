@@ -25,43 +25,43 @@ export default function NuestrosProductos() {
         </div>
       </div>
 
-      {/* Contenido de productos */}
-      <div className="max-w-6xl mx-auto px-6 mt-16">
+      {/* Productos tipo tarjeta con texto sobre la imagen */}
+      <div className="max-w-6xl mx-auto px-6 py-20 space-y-24">
         {/* Producto 1 */}
-        <div className="grid md:grid-cols-12 gap-12 items-center mb-24">
-          <div className="relative col-span-12 md:col-span-6 h-72 md:h-[450px] rounded-lg overflow-hidden">
-            <Image
-              src="/productos/vajilla1.jpg"
-              alt="Vajilla 1"
-              fill
-              className="object-cover"
-            />
-          </div>
-          <div className="col-span-12 md:col-span-6 text-[#5C432D]">
-            <h3 className="text-3xl font-cormorant mb-4">Colección Tierra</h3>
-            <p className="text-base font-light leading-relaxed">
-              Formas suaves y tonos naturales pensados para el día a día. Cada pieza
-              es única, elaborada a mano y resistente para el uso alimentario.
-            </p>
+        <div className="relative h-[500px] rounded-lg overflow-hidden">
+          <Image
+            src="/productos/vajilla1.jpg"
+            alt="Vajilla 1"
+            fill
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-black/40 flex items-end p-8">
+            <div className="text-white max-w-md">
+              <h3 className="text-3xl font-cormorant mb-2">Colección Tierra</h3>
+              <p className="text-base font-light">
+                Formas suaves y tonos naturales pensados para el día a día. Cada pieza
+                es única, elaborada a mano y resistente para el uso alimentario.
+              </p>
+            </div>
           </div>
         </div>
 
         {/* Producto 2 */}
-        <div className="grid md:grid-cols-12 gap-12 items-center">
-          <div className="col-span-12 md:col-span-6 order-2 md:order-1 text-[#5C432D]">
-            <h3 className="text-3xl font-cormorant mb-4">Serie Tradición</h3>
-            <p className="text-base font-light leading-relaxed">
-              Inspirada en motivos clásicos españoles, esta serie rescata la
-              alfarería tradicional, combinando estética y funcionalidad.
-            </p>
-          </div>
-          <div className="relative col-span-12 md:col-span-6 order-1 md:order-2 h-72 md:h-[450px] rounded-lg overflow-hidden">
-            <Image
-              src="/productos/vajilla2.jpg"
-              alt="Vajilla 2"
-              fill
-              className="object-cover"
-            />
+        <div className="relative h-[500px] rounded-lg overflow-hidden">
+          <Image
+            src="/productos/vajilla2.jpg"
+            alt="Vajilla 2"
+            fill
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-black/40 flex items-end p-8">
+            <div className="text-white max-w-md">
+              <h3 className="text-3xl font-cormorant mb-2">Serie Tradición</h3>
+              <p className="text-base font-light">
+                Inspirada en motivos clásicos españoles, esta serie rescata la alfarería
+                tradicional, combinando estética y funcionalidad.
+              </p>
+            </div>
           </div>
         </div>
       </div>

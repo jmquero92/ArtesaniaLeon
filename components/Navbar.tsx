@@ -11,7 +11,7 @@ export default function NavbarOverlay() {
     <>
       {/* Logo */}
       <div
-        className={`fixed top-4 left-6 z-50 flex items-center space-x-3 transition-opacity duration-300 ${
+        className={`fixed top-4 left-6 z-50 flex items-center space-x-3 px-4 py-2 rounded-md bg-black/40 backdrop-blur-3x1 transition-opacity duration-300 ${
           isOpen ? "opacity-0 pointer-events-none" : "opacity-100"
         }`}
       >
@@ -21,9 +21,9 @@ export default function NavbarOverlay() {
         </span>
       </div>
 
-      {/* Botón Menú sin elipse */}
+      {/* Botón Menú */}
       <nav
-        className={`fixed top-5 right-6 z-50 transition-opacity duration-300 ${
+        className={`fixed top-5 right-6 z-50 px-4 py-2 rounded-md bg-black/40 backdrop-blur-sm transition-opacity duration-300 ${
           isOpen ? "opacity-0 pointer-events-none" : "opacity-100"
         }`}
       >
@@ -51,7 +51,7 @@ export default function NavbarOverlay() {
 
       {/* Overlay menú */}
       <div
-        className={`fixed inset-0 bg-black/60 backdrop-blur-md z-40 transition-transform duration-500 ease-in-out ${
+        className={`fixed inset-0 bg-black/60 backdrop-blur-lg z-40 transition-transform duration-500 ease-in-out ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
@@ -100,4 +100,3 @@ export default function NavbarOverlay() {
     </>
   );
 }
-
