@@ -1,15 +1,17 @@
-"use client";
+'use client'
 
-import { useState } from "react";
-import Link from "next/link";
-import Image from "next/image";
+import { useState } from 'react'
+import Link from 'next/link'
+import Image from 'next/image'
+import { useLanguage } from '@/context/LanguageContext'
 
 export default function NavbarOverlay() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
+  const { locale, setLocale } = useLanguage()
 
   return (
     <>
-      {/* 🚀 Versión MOBILE (logo centrado, menú izquierda) */}
+      {/* 🚀 Versión MOBILE */}
       <div className="fixed top-4 left-0 right-0 z-50 px-4 md:hidden flex justify-center">
         {/* Logo centrado */}
         <div className="bg-black/60 backdrop-blur-lg px-3 py-2 rounded-md flex items-center space-x-2">
@@ -37,7 +39,7 @@ export default function NavbarOverlay() {
         </div>
       </div>
 
-      {/* 🖥️ Versión DESKTOP (logo izquierda, menú derecha) */}
+      {/* 🖥️ Versión DESKTOP */}
       <div className="hidden md:flex fixed top-4 left-6 z-50 items-center space-x-3 px-4 py-2 bg-black/40 backdrop-blur-md rounded-md transition-opacity duration-300">
         <Image src="/logo.png" alt="Logo" width={40} height={40} />
         <span className="text-white text-2xl font-diskus tracking-tight">
@@ -47,31 +49,54 @@ export default function NavbarOverlay() {
 
       <nav
         className={`hidden md:block fixed top-4 right-6 z-50 px-4 py-2 bg-black/40 backdrop-blur-md rounded-md transition-opacity duration-300 ${
-          isOpen ? "opacity-0 pointer-events-none" : "opacity-100"
+          isOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'
         }`}
       >
-        <button
-          onClick={() => setIsOpen(true)}
-          className="flex items-center gap-1 font-cormorant text-white text-lg tracking-wide hover:opacity-70"
-        >
-          MENÚ
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-5 h-5"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={2}
+        <div className="flex flex-col items-end gap-2">
+          {/* Botón menú */}
+          <button
+            onClick={() => setIsOpen(true)}
+            className="flex items-center gap-1 font-cormorant text-white text-lg tracking-wide hover:opacity-70"
           >
-            <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </button>
+            MENÚ
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-5 h-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+
+          {/* Selector de idioma (debajo del botón menú) */}
+          <div className="flex gap-2">
+            <button
+              onClick={() => setLocale('es')}
+              className={`px-3 py-1 text-sm rounded ${
+                locale === 'es' ? 'bg-white text-black' : 'bg-gray-700 text-white'
+              }`}
+            >
+              ES
+            </button>
+            <button
+              onClick={() => setLocale('en')}
+              className={`px-3 py-1 text-sm rounded ${
+                locale === 'en' ? 'bg-white text-black' : 'bg-gray-700 text-white'
+              }`}
+            >
+              EN
+            </button>
+          </div>
+        </div>
       </nav>
 
-      {/* Overlay menú */}
+      {/* Overlay menú móvil */}
       <div
         className={`fixed inset-0 bg-black/80 backdrop-blur-md z-40 transition-transform duration-500 ease-in-out ${
-          isOpen ? "translate-x-0" : "translate-x-full"
+          isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
         {/* Fondo degradado oscuro */}
@@ -116,8 +141,28 @@ export default function NavbarOverlay() {
           >
             Contacto
           </Link>
+
+          {/* Selector de idioma también en menú móvil */}
+          <div className="flex gap-4 mt-6">
+            <button
+              onClick={() => setLocale('es')}
+              className={`px-4 py-2 rounded border ${
+                locale === 'es' ? 'bg-white text-black' : 'border-white text-white'
+              }`}
+            >
+              ES
+            </button>
+            <button
+              onClick={() => setLocale('en')}
+              className={`px-4 py-2 rounded border ${
+                locale === 'en' ? 'bg-white text-black' : 'border-white text-white'
+              }`}
+            >
+              EN
+            </button>
+          </div>
         </div>
       </div>
     </>
-  );
+  )
 }

@@ -1,42 +1,28 @@
-import "./globals.css";
-import type { Metadata } from "next";
-import { Geist, Geist_Mono, Cormorant_Garamond } from "next/font/google";
+import './globals.css'
+import type { Metadata } from 'next'
+import { Inter } from 'next/font/google'
+import { LanguageProvider } from '@/context/LanguageContext'
 
-// Fonts
-const cormorant = Cormorant_Garamond({
-  subsets: ["latin"],
-  weight: ["400", "600", "700"],
-  variable: "--font-cormorant",
-});
-
-const geistSans = Geist({
-  subsets: ["latin"],
-  variable: "--font-geist-sans",
-});
-
-const geistMono = Geist_Mono({
-  subsets: ["latin"],
-  variable: "--font-geist-mono",
-});
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: "Artesanía León",
-  description: "Tradición alfarera desde 1906",
-};
+  title: 'Tu Sitio',
+  description: 'Descripción de tu sitio',
+}
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: {
+  children: React.ReactNode
+}) {
   return (
-    <html
-      lang="es"
-      className={`${geistSans.variable} ${geistMono.variable} ${cormorant.variable}`}
-    >
-      <body className="m-0 p-0 bg-[#fcf9f4] text-[#5C432D]">
-        <div className="w-full overflow-x-hidden">{children}</div>
+    <html lang="es">
+      <body className={inter.className}>
+        <LanguageProvider>
+          {children}
+        </LanguageProvider>
       </body>
     </html>
-  );
+  )
 }
+
