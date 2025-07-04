@@ -25,8 +25,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 50 }}
-            transition={{ duration: 0.6, ease: 'easeOut' }}
-          >
+            transition={{ duration: 1.0, ease: 'easeOut' }}   >
             <h1 className="text-7xl md:text-9xl font-diskus ">
               {t.hero.title}
             </h1>
