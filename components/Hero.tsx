@@ -27,7 +27,7 @@ export default function Hero() {
             exit={{ opacity: 0, y: 50 }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
           >
-            <h1 className="text-7xl md:text-9xl font-diskus font-bold">
+            <h1 className="text-7xl md:text-9xl font-diskus ">
               {t.hero.title}
             </h1>
             <p className="mt-6 text-2xl font-cormorant drop-shadow-md leading-snug whitespace-pre-line">
