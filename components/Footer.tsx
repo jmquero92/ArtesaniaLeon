@@ -1,19 +1,18 @@
-'use client'
+'use client';
 
-import Image from 'next/image'
-import Link from 'next/link'
-import { useLanguage } from '@/context/LanguageContext'
-import { useTranslation } from '@/hooks/useTranslation'
+import Image from 'next/image';
+import Link from 'next/link';
+import { useLanguage } from '@/context/LanguageContext';
+import { useTranslation } from '@/hooks/useTranslation';
 
 export default function Footer() {
-  const { locale } = useLanguage()
-  const { t } = useTranslation(locale)
+  const { locale } = useLanguage();
+  const { t } = useTranslation(locale);
 
   return (
     <footer className="bg-black/40 backdrop-blur-xl text-white py-12 px-6 border-t border-white/20">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left items-start">
-        
-        {/* Información */}
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6 text-center items-center">
+        {/* 🧭 Columna Información */}
         <div className="space-y-2 text-sm font-light">
           <h3 className="text-lg font-cormorant mb-2">Información</h3>
           <ul className="space-y-1">
@@ -27,9 +26,9 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Logo y sello Andalucía alineados */}
+        {/* 🖼️ Logos + Marca */}
         <div className="flex flex-col items-center space-y-4">
-          <div className="flex items-center justify-center gap-4">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <div className="w-24 md:w-28">
               <Image
                 src="/logo.png"
@@ -52,24 +51,27 @@ export default function Footer() {
             </div>
           </div>
           <h2 className="text-2xl font-diskus tracking-tight">Artesanía León</h2>
-          <p className="text-sm text-white/70 text-center">
+          <p className="text-sm text-white/70">
             {t.footer?.brandDescription ?? 'Desde 1906, cerámica con alma.'}
           </p>
         </div>
 
-        {/* Contacto y redes */}
+        {/* 📞 Contacto + Redes */}
         <div className="space-y-4 text-sm font-light">
           <div>
             <h3 className="text-lg font-cormorant mb-2">Contacto</h3>
             <p><span className="text-white/60">Email:</span> info@artesanialeon.es</p>
             <p><span className="text-white/60">Teléfono:</span> +34 957 68 42 23</p>
             <p><span className="text-white/60">WhatsApp:</span> +34 693 571 473</p>
-            <p><span className="text-white/60">Dirección:</span> Calle el Horno, 4,<br />14540 La Rambla, Córdoba</p>
+            <p>
+              <span className="text-white/60">Dirección:</span> Calle el Horno, 4,<br />
+              14540 La Rambla, Córdoba
+            </p>
           </div>
 
           <div>
             <h3 className="text-lg font-cormorant mb-2">{t.footer?.followUs ?? 'Síguenos'}</h3>
-            <div className="flex justify-center md:justify-start gap-4 text-white/80">
+            <div className="flex justify-center md:justify-center gap-4 text-white/80">
               <a href="#" aria-label="Instagram" className="hover:text-[#e57373] transition">
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm10 2c1.654 0 3 1.346 3 3v10c0 1.654-1.346 3-3 3H7c-1.654 0-3-1.346-3-3V7c0-1.654 1.346-3 3-3h10zM12 7a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm5.5-.5a1 1 0 110 2 1 1 0 010-2z" />
@@ -85,10 +87,10 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Línea final */}
-      <div className="mt-6 text-xs text-center text-white/60">
+      {/* 🔽 Derechos */}
+      <div className="mt-8 text-xs text-center text-white/60">
         © {new Date().getFullYear()} Artesanía León · {t.footer?.copyright ?? 'Todos los derechos reservados.'}
       </div>
     </footer>
-  )
+  );
 }
