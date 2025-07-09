@@ -1,7 +1,12 @@
 const es = {
   hero: {
     title: "Artesanía León",
-    subtitle: "Tradición alfarera desde 1906\nCerámica fabricada en España.",
+subtitles: [
+  'Tradición alfarera desde 1906.',
+  'Cerámica fabricada en España.',
+  'Hecho a mano con pasión.',
+  'Creado para perdurar.'
+]
   },
   historia: {
     title: 'Más que cerámica,\nuna historia que se moldea con el tiempo.',

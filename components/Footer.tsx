@@ -14,7 +14,7 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6 text-center items-center">
         {/* 🧭 Columna Información */}
         <div className="space-y-2 text-sm font-light">
-          <h3 className="text-lg font-cormorant mb-2">Información</h3>
+          <h3 className="text-lg font-cormorant mb-2">INFORMACIÓN</h3>
           <ul className="space-y-1">
             <li><Link href="#quienes-somos" className="hover:underline">La Empresa</Link></li>
             <li><Link href="/privacidad" className="hover:underline">Política de Privacidad</Link></li>
@@ -59,7 +59,7 @@ export default function Footer() {
         {/* 📞 Contacto + Redes */}
         <div className="space-y-4 text-sm font-light">
           <div>
-            <h3 className="text-lg font-cormorant mb-2">Contacto</h3>
+            <h3 className="text-lg font-cormorant mb-2">CONTACTO</h3>
             <p><span className="text-white/60">Email:</span> info@artesanialeon.es</p>
             <p><span className="text-white/60">Teléfono:</span> +34 957 68 42 23</p>
             <p><span className="text-white/60">WhatsApp:</span> +34 693 571 473</p>
@@ -68,6 +68,8 @@ export default function Footer() {
               14540 La Rambla, Córdoba
             </p>
           </div>
+        
+          
 
           <div>
             <h3 className="text-lg font-cormorant mb-2">{t.footer?.followUs ?? 'Síguenos'}</h3>
@@ -92,5 +94,6 @@ export default function Footer() {
         © {new Date().getFullYear()} Artesanía León · {t.footer?.copyright ?? 'Todos los derechos reservados.'}
       </div>
     </footer>
+  
   );
 }

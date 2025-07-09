@@ -15,8 +15,8 @@ export default function NavbarOverlay() {
       <div className="fixed top-4 left-0 right-0 z-50 px-4 md:hidden flex justify-center">
         {/* Logo centrado */}
         <div className="bg-black/60 backdrop-blur-lg px-3 py-2 rounded-md flex items-center space-x-2">
-          <Image src="/logo.png" alt="Logo" width={36} height={36} />
-        </div>
+  <Image src="/logo.png" alt="Logo" width={36} height={36} />
+</div>
 
         {/* Botón menú a la izquierda */}
         <div className="absolute left-4 top-1/2 -translate-y-1/2">
@@ -40,12 +40,16 @@ export default function NavbarOverlay() {
       </div>
 
       {/* 🖥️ Versión DESKTOP */}
-      <div className="hidden md:flex fixed top-4 left-6 z-50 items-center space-x-3 px-4 py-2 bg-black/40 backdrop-blur-md rounded-md transition-opacity duration-300">
-        <Image src="/logo.png" alt="Logo" width={40} height={40} />
-        <span className="text-white text-2xl font-diskus tracking-tight">
-          Artesanía León
-        </span>
-      </div>
+<Link
+  href="/"
+  className="hidden md:flex fixed top-4 left-6 z-50 items-center space-x-3 px-4 py-2 bg-black/40 backdrop-blur-md rounded-md transition-opacity duration-300"
+>
+  <Image src="/logo.png" alt="Logo" width={40} height={40} />
+  <span className="text-white text-2xl font-diskus tracking-tight">
+    Artesanía León
+  </span>
+</Link>
+
 
       <nav
         className={`hidden md:block fixed top-4 right-6 z-50 px-4 py-2 bg-black/40 backdrop-blur-md rounded-md transition-opacity duration-300 ${
@@ -112,35 +116,43 @@ export default function NavbarOverlay() {
             ✕
           </button>
 
-          {/* Enlaces */}
-          <Link
-            href="#quienes-somos"
-            onClick={() => setIsOpen(false)}
-            className="hover:text-[#e57373] transition-colors"
-          >
-            La Empresa
-          </Link>
-          <Link
-            href="/catalogo"
-            onClick={() => setIsOpen(false)}
-            className="hover:text-[#e57373] transition-colors"
-          >
-            Catálogo
-          </Link>
-          <Link
-            href="#blog"
-            onClick={() => setIsOpen(false)}
-            className="hover:text-[#e57373] transition-colors"
-          >
-            Blog
-          </Link>
-          <Link
-            href="#contacto"
-            onClick={() => setIsOpen(false)}
-            className="hover:text-[#e57373] transition-colors"
-          >
-            Contacto
-          </Link>
+{/* Enlaces */}
+<Link
+  href="/empresa"
+  onClick={() => setIsOpen(false)}
+  className="hover:text-[#e57373] transition-colors"
+>
+  La Empresa
+</Link>
+<Link
+  href="/catalogo"
+  onClick={() => setIsOpen(false)}
+  className="hover:text-[#e57373] transition-colors"
+>
+  Catálogo
+</Link>
+<Link
+  href="/rasca-ajos"
+  onClick={() => setIsOpen(false)}
+  className="hover:text-[#e57373] transition-colors"
+>
+  Rasca Ajos
+</Link>
+<Link
+  href="/colecciones"
+  onClick={() => setIsOpen(false)}
+  className="hover:text-[#e57373] transition-colors"
+>
+  Colecciones
+</Link>
+<Link
+  href="#contacto"
+  onClick={() => setIsOpen(false)}
+  className="hover:text-[#e57373] transition-colors"
+>
+  Contacto
+</Link>
+
 
           {/* Selector de idioma también en menú móvil */}
           <div className="flex gap-4 mt-6">

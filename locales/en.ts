@@ -1,7 +1,12 @@
 const en = {
   hero: {
     title: "Artesanía León",
-    subtitle: "Pottery tradition since 1906\nCeramics made in Spain.",
+    subtitles: [
+  'Pottery tradition since 1906.',
+  'Ceramics made in Spain.',
+  'Handcrafted with passion.',
+  'Made to last.'
+]
   },
   historia: {
     title: "More than pottery,\na story shaped over time.",

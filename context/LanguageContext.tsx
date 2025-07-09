@@ -1,6 +1,7 @@
 'use client'
 
 import { createContext, useContext, useState, ReactNode } from 'react'
+import { isContext } from 'vm'
 
 type Locale = 'es' | 'en'
 
@@ -26,3 +27,11 @@ export const useLanguage = (): LanguageContextProps => {
   if (!context) throw new Error('useLanguage must be used within a LanguageProvider')
   return context
 }
+
+/*export const useLanguage = (): LanguageContextProps {
+
+  const contxt ? useContext(LanguageContext)
+  if (!context) throw new Erro ('useLanguague must be used within a LanguageProvider')
+    return isContext
+}
+*/
