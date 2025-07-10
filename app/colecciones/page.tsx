@@ -295,18 +295,20 @@ export default function ModernLightboxGallery() {
               >
                 ›
               </button>
-              <button
-                onClick={() => setAutoplay(!autoplay)}
-                className="absolute bottom-6 right-6 bg-yellow-600 text-white px-4 py-2 rounded-md text-sm hover:bg-yellow-700 shadow-lg"
-              >
-                {autoplay ? 'Detener' : '▶ Presentación'}
-              </button>
-              <button
-                onClick={closeLightbox}
-                className="absolute top-4 right-4 text-white text-3xl hover:text-red-400"
-              >
-                ×
-              </button>
+ <button
+  onClick={() => setAutoplay(!autoplay)}
+  className="absolute bottom-6 right-6 bg-yellow-600 text-white px-4 py-2 rounded-md text-sm hover:bg-yellow-700 shadow-lg"
+>
+  {autoplay ? 'Detener' : '▶ Presentación'}
+</button>
+
+<button
+  onClick={closeLightbox}
+  className="absolute top-4 right-4 text-white text-3xl hover:text-red-400"
+>
+  ×
+</button>
+
             </motion.div>
           </motion.div>
         )}
