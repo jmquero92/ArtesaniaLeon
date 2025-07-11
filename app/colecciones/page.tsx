@@ -1,176 +1,207 @@
-"use client"
+"use client";
 
-import { useState, useEffect, useRef } from 'react'
-import Image from 'next/image'
-import { motion, AnimatePresence } from 'framer-motion'
+import { useState, useEffect, useRef } from "react";
+import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface Imagen {
-  src: string
-  alt: string
-  categoria: string
-  relacionadas?: string[]
+  src: string;
+  alt: string;
+  categoria: string;
+  relacionadas?: string[];
 }
 
 const imagenes: Imagen[] = [
-  { src: '/25-1-scaled.jpeg', alt: '25-1', categoria: 'rayas' },
-  { src: '/25-2-scaled.jpeg', alt: '25-2', categoria: 'rayas' },
-  { src: '/25-3-scaled.jpeg', alt: '25-3', categoria: 'rayas' },
-  { src: '/25-4-scaled.jpeg', alt: '25-4', categoria: 'rayas' },
+  { src: "/25-1-scaled.jpeg", alt: "25-1", categoria: "rayas" },
+  { src: "/25-2-scaled.jpeg", alt: "25-2", categoria: "rayas" },
+  { src: "/25-3-scaled.jpeg", alt: "25-3", categoria: "rayas" },
+  { src: "/25-4-scaled.jpeg", alt: "25-4", categoria: "rayas" },
   {
-    src: '/25-6-scaled.jpeg',
-    alt: '25-6',
-    categoria: 'mar',
+    src: "/25-6-scaled.jpeg",
+    alt: "25-6",
+    categoria: "mar",
     relacionadas: [
-      '/25-6-scaled.jpeg',
-      '/25-6-1.jpg',
-      '/25-6-2.jpg',
-      '/25-6-3.jpg',
-      '/25-6-4.jpg',
+      "/25-6-scaled.jpeg",
+      "/25-6-1.jpg",
+      "/25-6-2.jpg",
+      "/25-6-3.jpg",
+      "/25-6-4.jpg",
     ],
   },
-  { src: '/25-7-scaled.jpeg', alt: '25-7', categoria: 'flores', 
-    relacionadas:[
-      '/25-7-scaled.jpeg',
-      '/25-7-1.jpg',
-      '/25--7-2.jpeg',
-    ] },
-  { src: '/25-8-scaled.jpeg', alt: '25-8', categoria: 'mar',
-    relacionadas:[
-      '/25-8-scaled.jpeg',
-      '/25-8-1.jpg',
-      '/25-8-2.jpg',
-      '/25-8-4.jpg',
-    ]
-   },
-  { src: '/25-9-scaled.jpeg', alt: '25-9', categoria: 'flores',
-    relacionadas: [
-        '/25-9-scaled.jpeg',
-        '/25-9-2.jpg',
-        '/25-9-3.jpg',
-        '/25-9-4.jpg',
-    ]
+  {
+    src: "/25-7-scaled.jpeg",
+    alt: "25-7",
+    categoria: "flores",
+    relacionadas: ["/25-7-scaled.jpeg", "/25-7-1.jpg", "/25--7-2.jpeg"],
   },
-  { src: '/25-10-scaled.jpeg', alt: '25-10', categoria: 'flores',
+  {
+    src: "/25-8-scaled.jpeg",
+    alt: "25-8",
+    categoria: "mar",
     relacionadas: [
-      '/25-10-scaled.jpeg',
-      '/25-10-1.jpeg',
-    ]
-   },
-  { src: '/25-11-scaled.jpeg', alt: '25-11', categoria: 'flores', 
+      "/25-8-scaled.jpeg",
+      "/25-8-1.jpg",
+      "/25-8-2.jpg",
+      "/25-8-4.jpg",
+    ],
+  },
+  {
+    src: "/25-9-scaled.jpeg",
+    alt: "25-9",
+    categoria: "flores",
     relacionadas: [
-      '/25-11-scaled.jpeg',
-      '/25-11-1.jpg',
-      '/25-11-2.jpg',
-      '/25-11-3.jpg',
-      '/25-11-4.jpg',
-    ]
+      "/25-9-scaled.jpeg",
+      "/25-9-2.jpg",
+      "/25-9-3.jpg",
+      "/25-9-4.jpg",
+    ],
   },
-  { src: '/25-13-scaled.jpeg', alt: '25-13', categoria: 'mar',
-    relacionadas:[
-      '/25-13-scaled.jpeg',
-      '/25-13-1.jpg',
-      '/25-13-2.jpg',
-      '/25-13-3.jpg',
-      '/25-13-4.jpg',
-    ]
-   },
-  { src: '/25-18.png', alt: '25-18', categoria: 'mar',
-    relacionadas:[
-      '/25-18.png',
-      '/25-18-1.jpg',
-      '/25-18-2.jpg',
-      '/25-18-4.jpg',
-    ]
-   },
-  { src: '/25-19.png', alt: '25-19', categoria: 'mar',
-    relacionadas:[
-      '/25-19.png',
-      '/25-19-1.jpg',
-      '/25-19-2.jpg',
-      '/25-19-3.jpg',
-      '/25-19s-4.jpg',
-    ]
+  {
+    src: "/25-10-scaled.jpeg",
+    alt: "25-10",
+    categoria: "flores",
+    relacionadas: ["/25-10-scaled.jpeg", "/25-10-1.jpeg"],
   },
-  { src: '/25-20.png', alt: '25-20', categoria: 'mar',
-    relacionadas:[
-      '/25-20.png',
-      '/25-20-1.jpg',
-      '/25-20-2.jpg',
-      '/25-20-3.jpg',
-      '/25-20-4.jpg',
-      '/25-20-5.jpg',
-    ]
-   },
-  { src: '/22-2.png', alt: '22-2', categoria: 'salpicado' },
-]
+  {
+    src: "/25-11-scaled.jpeg",
+    alt: "25-11",
+    categoria: "flores",
+    relacionadas: [
+      "/25-11-scaled.jpeg",
+      "/25-11-1.jpg",
+      "/25-11-2.jpg",
+      "/25-11-3.jpg",
+      "/25-11-4.jpg",
+    ],
+  },
+  {
+    src: "/25-13-scaled.jpeg",
+    alt: "25-13",
+    categoria: "mar",
+    relacionadas: [
+      "/25-13-scaled.jpeg",
+      "/25-13-1.jpg",
+      "/25-13-2.jpg",
+      "/25-13-3.jpg",
+      "/25-13-4.jpg",
+    ],
+  },
+  {
+    src: "/25-18.png",
+    alt: "25-18",
+    categoria: "mar",
+    relacionadas: [
+      "/25-18.png",
+      "/25-18-1.jpg",
+      "/25-18-2.jpg",
+      "/25-18-4.jpg",
+    ],
+  },
+  {
+    src: "/25-19.png",
+    alt: "25-19",
+    categoria: "mar",
+    relacionadas: [
+      "/25-19.png",
+      "/25-19-1.jpg",
+      "/25-19-2.jpg",
+      "/25-19-3.jpg",
+      "/25-19s-4.jpg",
+    ],
+  },
+  {
+    src: "/25-20.png",
+    alt: "25-20",
+    categoria: "mar",
+    relacionadas: [
+      "/25-20.png",
+      "/25-20-1.jpg",
+      "/25-20-2.jpg",
+      "/25-20-3.jpg",
+      "/25-20-4.jpg",
+      "/25-20-5.jpg",
+    ],
+  },
+  { src: "/22-2.png", alt: "22-2", categoria: "salpicado" },
+];
 
-const categorias = ['todos', 'flores', 'mar', 'rayas', 'salpicado']
+const categorias = ["todos", "flores", "mar", "rayas", "salpicado"];
 
 export default function ModernLightboxGallery() {
-  const [authenticated, setAuthenticated] = useState(false)
-  const [inputPassword, setInputPassword] = useState('')
-  const correctPassword = '2905'
+  const [authenticated, setAuthenticated] = useState(false);
+  const [inputPassword, setInputPassword] = useState("");
+  const correctPassword = "2905";
 
-  const [categoriaActiva, setCategoriaActiva] = useState('todos')
-  const [lightboxOpen, setLightboxOpen] = useState(false)
-  const [currentImage, setCurrentImage] = useState<string>('')
-  const [imageList, setImageList] = useState<string[]>([])
-  const [index, setIndex] = useState(0)
-  const [autoplay, setAutoplay] = useState(false)
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null)
-  const touchStartX = useRef<number>(0)
+  const [categoriaActiva, setCategoriaActiva] = useState("todos");
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [currentImage, setCurrentImage] = useState<string>("");
+  const [imageList, setImageList] = useState<string[]>([]);
+  const [index, setIndex] = useState(0);
+  const [autoplay, setAutoplay] = useState(false);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const touchStartX = useRef<number>(0);
 
-  const imagenesFiltradas = categoriaActiva === 'todos'
-    ? imagenes
-    : imagenes.filter((img) => img.categoria === categoriaActiva)
+  const imagenesFiltradas =
+    categoriaActiva === "todos"
+      ? imagenes
+      : imagenes.filter((img) => img.categoria === categoriaActiva);
 
   const openLightbox = (relacionadas: string[], initial: string) => {
-    setImageList(relacionadas)
-    setCurrentImage(initial)
-    setIndex(relacionadas.indexOf(initial))
-    setLightboxOpen(true)
-  }
+    setImageList(relacionadas);
+    setCurrentImage(initial);
+    setIndex(relacionadas.indexOf(initial));
+    setLightboxOpen(true);
+  };
 
   const closeLightbox = () => {
-    setLightboxOpen(false)
-    setAutoplay(false)
-    setCurrentImage('')
-  }
+    setLightboxOpen(false);
+    setAutoplay(false);
+    setCurrentImage("");
+  };
 
   const nextImage = () => {
-    const next = (index + 1) % imageList.length
-    setIndex(next)
-    setCurrentImage(imageList[next])
-  }
+    const next = (index + 1) % imageList.length;
+    setIndex(next);
+    setCurrentImage(imageList[next]);
+  };
 
   const prevImage = () => {
-    const prev = (index - 1 + imageList.length) % imageList.length
-    setIndex(prev)
-    setCurrentImage(imageList[prev])
-  }
+    const prev = (index - 1 + imageList.length) % imageList.length;
+    setIndex(prev);
+    setCurrentImage(imageList[prev]);
+  };
 
   useEffect(() => {
     if (autoplay) {
-      timeoutRef.current = setTimeout(() => nextImage(), 4000)
+      timeoutRef.current = setTimeout(() => nextImage(), 4000);
     }
-    return () => clearTimeout(timeoutRef.current!)
-  }, [index, autoplay])
+    return () => clearTimeout(timeoutRef.current!);
+  }, [index, autoplay]);
 
   if (!authenticated) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-[#fdfaf7] px-4">
         <div className="max-w-md w-full text-center space-y-4 p-8 bg-white rounded-xl shadow-xl border border-yellow-300">
-          <h2 className="text-2xl font-bold text-yellow-700">Acceso Privado</h2>
+          <h2 className="text-2xl font-bold text-yellow-700">
+  <span>Acceso Privado</span><br />
+  <span>Colecciones</span>
+</h2>
+
           <input
             type="password"
             placeholder="Introduce la contraseña"
             value={inputPassword}
             onChange={(e) => setInputPassword(e.target.value)}
+             onKeyDown={(e) => {
+    if (e.key === 'Enter' && inputPassword === correctPassword) {
+      setAuthenticated(true)
+    }
+  }}
             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400"
           />
           <button
             onClick={() => {
-              if (inputPassword === correctPassword) setAuthenticated(true)
+              if (inputPassword === correctPassword) setAuthenticated(true);
             }}
             className="w-full bg-yellow-600 hover:bg-yellow-700 text-white py-2 px-4 rounded-lg font-semibold"
           >
@@ -178,7 +209,7 @@ export default function ModernLightboxGallery() {
           </button>
         </div>
       </div>
-    )
+    );
   }
 
   return (
@@ -200,7 +231,9 @@ export default function ModernLightboxGallery() {
             key={cat}
             onClick={() => setCategoriaActiva(cat)}
             className={`relative px-6 py-3 text-lg font-medium transition-colors whitespace-nowrap ${
-              categoriaActiva === cat ? 'text-yellow-700' : 'text-gray-500 hover:text-yellow-600'
+              categoriaActiva === cat
+                ? "text-yellow-700"
+                : "text-gray-500 hover:text-yellow-600"
             }`}
           >
             {cat.charAt(0).toUpperCase() + cat.slice(1)}
@@ -214,27 +247,37 @@ export default function ModernLightboxGallery() {
         ))}
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {imagenesFiltradas.map((img) => (
-          <div
-            key={img.src}
-            className="group cursor-pointer overflow-hidden rounded-xl shadow-lg relative"
-            onClick={() => openLightbox(img.relacionadas || [img.src], img.src)}
-          >
-            <Image
-              src={img.src}
-              alt={img.alt}
-              width={600}
-              height={400}
-              className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
-            />
-            <div className="absolute bottom-2 left-0 right-0 text-center text-gray-100 text-sm font-medium bg-black/50 py-1 pointer-events-none">
-              {img.alt}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={categoriaActiva}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          transition={{ duration: 0.5 }}
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
+        >
+          {imagenesFiltradas.map((img) => (
+            <div
+              key={img.src}
+              className="group cursor-pointer overflow-hidden rounded-xl shadow-lg relative"
+              onClick={() => openLightbox(img.relacionadas || [img.src], img.src)}
+            >
+              <Image
+                src={img.src}
+                alt={img.alt}
+                width={600}
+                height={400}
+                className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+              <div className="absolute bottom-2 left-0 right-0 text-center text-gray-100 text-sm font-medium bg-black/50 py-1 pointer-events-none">
+                {img.alt}
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </motion.div>
+      </AnimatePresence>
 
+      {/* Lightbox */}
       <AnimatePresence>
         {lightboxOpen && (
           <motion.div
@@ -245,9 +288,9 @@ export default function ModernLightboxGallery() {
             onClick={closeLightbox}
             onTouchStart={(e) => (touchStartX.current = e.touches[0].clientX)}
             onTouchEnd={(e) => {
-              const delta = touchStartX.current - e.changedTouches[0].clientX
-              if (delta > 50) nextImage()
-              else if (delta < -50) prevImage()
+              const delta = touchStartX.current - e.changedTouches[0].clientX;
+              if (delta > 50) nextImage();
+              else if (delta < -50) prevImage();
             }}
           >
             <motion.div
@@ -263,8 +306,8 @@ export default function ModernLightboxGallery() {
                 alt=""
                 className="rounded-2xl max-h-[80vh] mx-auto object-contain shadow-2xl transition-all duration-500 cursor-zoom-in"
                 onClick={(e) => {
-                  const img = e.currentTarget
-                  img.classList.toggle('scale-110')
+                  const img = e.currentTarget;
+                  img.classList.toggle("scale-110");
                 }}
               />
               <div className="flex justify-center mt-6 gap-4 overflow-x-auto pb-2">
@@ -274,11 +317,13 @@ export default function ModernLightboxGallery() {
                     src={src}
                     alt="mini"
                     onClick={() => {
-                      setCurrentImage(src)
-                      setIndex(i)
+                      setCurrentImage(src);
+                      setIndex(i);
                     }}
                     className={`h-24 rounded-lg cursor-pointer border-2 transition-transform duration-300 hover:scale-105 ${
-                      currentImage === src ? 'border-yellow-500' : 'border-transparent'
+                      currentImage === src
+                        ? "border-yellow-500"
+                        : "border-transparent"
                     }`}
                   />
                 ))}
@@ -295,24 +340,22 @@ export default function ModernLightboxGallery() {
               >
                 ›
               </button>
- <button
-  onClick={() => setAutoplay(!autoplay)}
-  className="absolute bottom-6 right-6 bg-yellow-600 text-white px-4 py-2 rounded-md text-sm hover:bg-yellow-700 shadow-lg"
->
-  {autoplay ? 'Detener' : '▶ Presentación'}
-</button>
-
-<button
-  onClick={closeLightbox}
-  className="absolute top-4 right-4 text-white text-3xl hover:text-red-400"
->
-  ×
-</button>
-
+              <button
+                onClick={() => setAutoplay(!autoplay)}
+                className="absolute bottom-6 right-6 bg-yellow-600 text-white px-4 py-2 rounded-md text-sm hover:bg-yellow-700 shadow-lg"
+              >
+                {autoplay ? "Detener" : "▶ Presentación"}
+              </button>
+              <button
+                onClick={closeLightbox}
+                className="absolute top-4 right-4 text-white text-3xl hover:text-red-400"
+              >
+                ×
+              </button>
             </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
     </div>
-  )
+  );
 }
